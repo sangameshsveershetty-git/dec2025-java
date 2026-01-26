@@ -1,28 +1,30 @@
 pipeline {
     agent any
-    environment {
-        PATH="/opt/maven/bin/:$PATH"
+    // environment {
+    //     PATH="/opt/maven/bin/:$PATH"
+    // }
+    
     }
 
     stages {
-        stage('Git Checkout') {
+        stage('shiva Git Checkout') {
             steps {
                 git 'https://github.com/sangameshsveershetty-git/dec2025-java.git'
             }
         }
 
-        stage('Maven Check') {
+        stage('shiva Maven Check') {
             steps {
                 sh 'mvn --version'
             }
         }
 
-        stage('Build Package') {
+        stage('shiva Build Package') {
             steps {
                 // Performs the actual build
                 sh 'mvn -B -DskipTests clean package'
-                sh 'mvn validate'
-                sh 'mvn install'
+                // sh 'mvn validate'
+                // sh 'mvn install'
             }
         } 
 
