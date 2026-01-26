@@ -3,23 +3,24 @@ pipeline {
     // environment {
     //     PATH="/opt/maven/bin/:$PATH"
     // }
-    
+    tools {
+        maven 'maven3.9.10'
     }
 
     stages {
-        stage('shiva Git Checkout') {
+        stage('shiva-Git Checkout') {
             steps {
                 git 'https://github.com/sangameshsveershetty-git/dec2025-java.git'
             }
         }
 
-        stage('shiva Maven Check') {
+        stage('shiva-Maven Check') {
             steps {
                 sh 'mvn --version'
             }
         }
 
-        stage('shiva Build Package') {
+        stage('shiva-Build Package') {
             steps {
                 // Performs the actual build
                 sh 'mvn -B -DskipTests clean package'
