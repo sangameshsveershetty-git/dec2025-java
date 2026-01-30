@@ -6,24 +6,21 @@ pipeline {
     tools {
         maven 'maven3.9.10'
     }
-
     stages {
-        stage('shiva-Git Checkout') {
+        stage('shiva-Git') {
             steps {
                 git 'https://github.com/sangameshsveershetty-git/dec2025-java.git'
             }
         }
-
-        stage('shiva-Maven Check') {
+        stage('shiva-maven-check') {
             steps {
-                sh 'maven --version'
+                sh 'mvn --version'
             }
         }
 
         stage('shiva-Build Package') {
             steps {
-                // Performs the actual build
-                sh 'maven -B -DskipTests clean package'
+                sh 'mvn -B -DskipTests clean package'
                 // sh 'maven validate'
                 // sh 'maven install'
             }
@@ -31,8 +28,7 @@ pipeline {
 
         stage('validation') {
             steps {
-                // Performs the actual build
-                sh 'maven validate'
+                sh 'mvn validate'
                 
             }
         }         
