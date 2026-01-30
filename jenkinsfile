@@ -16,23 +16,23 @@ pipeline {
 
         stage('shiva-Maven Check') {
             steps {
-                sh 'mvn --version'
+                sh 'maven --version'
             }
         }
 
         stage('shiva-Build Package') {
             steps {
                 // Performs the actual build
-                sh 'mvn -B -DskipTests clean package'
-                // sh 'mvn validate'
-                // sh 'mvn install'
+                sh 'maven -B -DskipTests clean package'
+                // sh 'maven validate'
+                // sh 'maven install'
             }
         } 
 
         stage('validation') {
             steps {
                 // Performs the actual build
-                sh 'mvn validate'
+                sh 'maven validate'
                 
             }
         }         
