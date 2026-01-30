@@ -4,7 +4,7 @@ pipeline {
     //     PATH="/opt/maven/bin/:$PATH"
     // }
     tools {
-        maven 'maven3.9.10'
+        maven 'maven3.9.12'
     }
     stages {
         stage('shiva-Git') {
